@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Responsive Web UI Kit &amp; Dashboard Template based on Bootstrap">
+	<meta name="author" content="AdminKit">
+	<meta name="keywords" content="adminkit, bootstrap, web ui kit, dashboard template, admin template">
+	<link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+	<title>Shamba Digi | Register</title>
+	<link href="/css/app.css" rel="stylesheet">
+
+</head>
+<!-- <body style="background-color: #9bde9b; background-image: radial-gradient(at 47% 33%, hsl(162.00, 77%, 40%) 0,transparent 59%),radial-gradient(at 82% 65%, hsl(139.09, 67%, 28.000000000000004%) 0, transparent 55%);"> -->
+    <body style="background-image: url(../images/kenyanfarm.jpeg    ); background-repeat: no-repeat; background-position: center; background-size: cover;">
+        <h1><a href="index.html" style="text-decoration: none; color: white; font-size: 20px;"><i class="fa fa-arrow-left" aria-hidden="true"></i>Home</a></h1>
+	<center>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<main class="content">
+            <div class="container-fluid p-0">
+                <h1 style=" color: white;">Welcome To Shamba Digi</h1>
+                <div class="row">
+                    <div class="col-12 col-xl-3"></div>
+                    <div class="col-12 col-xl-6">
+                        <div class="card" style="backdrop-filter: blur(7px) saturate(164%);-webkit-backdrop-filter: blur(7px) saturate(164%);background-color: rgba(244, 245, 248, 0.46);border-radius: 12px;border: 1px solid rgba(255, 255, 255, 0.125);">
+                            <!-- <div class="card-header">
+                                <h5 class="card-title">Register Now</h5>
+                            </div> -->
+                            <div class="card-body">
+                                <form action="/register" method="POST">
+                                    <div class="form-row">
+                                            <div class="form-group" style="width: 80%; display: flex;  align-items: center; justify-content: space-evenly;">
+                                                <label for="name" class="form-label"  style="padding-right: 85px; color: white;">Name</label>
+                                                <input type="text" class="form-control" id="name" name="name" placeholder="Name" style="border-radius: 50px;background: #fff;box-shadow: 0px 8px 15px #adadad;"required/>
+                                            </div>
+                                            <div class="form-group" style="width: 80%; display: flex; justify-content: space-between;">
+                                                <label for="email" style="padding-right: 85px; color: white; font-size: 15px; font-weight: 500;">Email</label>
+                                                <input type="email" class="form-control" id="email" name="email" placeholder="Email" style="border-radius: 50px;background: #fff;box-shadow: 0px 8px 15px #adadad;"required/>
+                                            </div>
+                                            <div class="form-group" style="width: 80%; display: flex;  align-items: center; justify-content: space-evenly;">
+                                                <label for="password"  style="padding-right: 55px; color: white; font-size: 15px; font-weight: 500;">Password</label>
+                                                <input type="password" class="form-control" id="password" name="password" placeholder="Password" style="border-radius: 50px;background: #fff;box-shadow: 0px 8px 15px #adadad;"required/>
+                                            </div>
+                                            <div class="form-group" style="width: 80%; display: flex;  align-items: center; justify-content: space-evenly;">
+                                                <label for="cpassword"  style="padding-right: 25px; color: white; font-size: 15px; font-weight: 500;">Confirm Password</label>
+                                                <input type="password" class="form-control" id="cpassword" name="cpassword" placeholder="Confirm Password" style="border-radius: 50px;background: #fff;box-shadow: 0px 8px 15px #adadad;" required/>
+                                            </div>
+                                            <% if (locals.error) {%>
+                                                <p style="color: red;"><%= error %></p>
+                                                <% } %>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <!-- <div class="form-group">
+                                        <label class="custom-control custom-checkbox m-0">
+                                            <input type="checkbox" class="custom-control-input" required />
+                                            <span class="custom-control-label">I agree to the Terms and Conditions and Privacy Policy</span>
+                                        </label>
+                                    </div> -->
+                                    <button type="submit" class="btn btn-primary" style="border-radius: 50px; border: none;background: rgb(125, 247, 77); box-shadow: 0px 8px 15px #adadad;transition: all 0.3s ease 0s;">Sign Up</button>
+                                    <br>
+                                    <br>
+                                    <p>Have an account? <a href="login.html">Login</a></p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    
+                   
+                </div>
+            </div>
+        </main>
+        <br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		
+			<!-- <footer class="footer">
+				<div class="container-fluid">
+					<div class="row text-muted">
+						<div class="col-6 text-left">
+							<p class="mb-0">
+								<a href="/" class="text-muted"><strong>Shamba Digi</strong></a> &copy;
+							</p>
+						</div>
+						<div class="col-6 text-right">
+							<ul class="list-inline">
+								<li class="list-inline-item">
+									<a class="text-muted" href="#">Support</a>
+								</li>
+								<li class="list-inline-item">
+									<a class="text-muted" href="#">Help Center</a>
+								</li>
+								<li class="list-inline-item">
+									<a class="text-muted" href="#">Privacy</a>
+								</li>
+								<li class="list-inline-item">
+									<a class="text-muted" href="#">Terms</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</footer> -->
+		</div>
+	</div>
+    <script src="js/app.js"></script>
+ 
+</body>
+</html>
+
+
+
+	

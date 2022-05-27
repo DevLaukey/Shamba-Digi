@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="Responsive Web UI Kit &amp; Dashboard Template based on Bootstrap"
+    />
+    <meta name="author" content="AdminKit" />
+    <meta
+      name="keywords"
+      content="adminkit, bootstrap, web ui kit, dashboard template, admin template"
+    />
+
+    <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+
+    <title>Shamba Digi</title>
+
+    <link href="/css/app.css" rel="stylesheet" />
+    <link href="/css/styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <nav id="sidebar" class="sidebar">
+        <div class="sidebar-content js-simplebar">
+          <a class="sidebar-brand" href="index">
+            <span class="align-middle">Shamba Digi</span>
+          </a>
+          <ul class="sidebar-nav">
+            <li class="sidebar-header">Welcome Victor</li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="dashboard">
+                <i class="align-middle" data-feather="star"></i>
+                <span class="align-middle">Dashboard</span>
+              </a>
+            </li>
+            <li class="sidebar-item active">
+              <a class="sidebar-link" href="addItem">
+                <i class="align-middle" data-feather="plus-circle"></i>
+                <span class="align-middle">Add Item</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="allitems">
+                <i class="align-middle" data-feather="bookmark"></i>
+                <span class="align-middle">All Items</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="useItem">
+                <i class="align-middle" data-feather="plus-circle"></i>
+                <span class="align-middle">Use Item</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="usedItems">
+                <i class="align-middle" data-feather="bookmark"></i>
+                <span class="align-middle">Used Items</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="suggestions">
+                <i class="align-middle" data-feather="link"></i>
+                <span class="align-middle">Re-Shelving Suggestions</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="settings">
+                <i class="align-middle" data-feather="settings"></i>
+                <span class="align-middle">Settings</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="logout">
+                <i class="align-middle" data-feather="log-out"></i>
+                <span class="align-middle">Logout</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="main">
+        <nav class="navbar navbar-expand navbar-light navbar-bg">
+          <a class="sidebar-toggle d-flex">
+            <i class="hamburger align-self-center"></i>
+          </a>
+          <div class="navbar-collapse collapse">
+            <ul class="navbar-nav navbar-align">
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-icon dropdown-toggle d-inline-block d-sm-none"
+                  href="#"
+                  data-toggle="dropdown"
+                >
+                  <i class="align-middle" data-feather="settings"></i>
+                </a>
+                <a
+                  class="nav-link dropdown-toggle d-none d-sm-inline-block"
+                  href="#"
+                  data-toggle="dropdown"
+                >
+                  <span class="text-dark"><%= user.email %></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  
+                  <!-- <a class="dropdown-item" href="#"><i class="align-middle mr-1" data-feather="pie-chart"></i> Analytics</a> -->
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="/users/settings"
+                    ><i class="align-middle mr-1" data-feather="settings"></i>
+                    Settings & Privacy</a
+                  >
+                  <a class="dropdown-item" href="#"
+                    ><i
+                      class="align-middle mr-1"
+                      data-feather="help-circle"
+                    ></i>
+                    Help Center</a
+                  >
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="/logout">Log out</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <main class="content">
+          <div class="container-fluid p-0">
+            <h1 class="h3 mb-3">Add an Item</h1>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h5 class="card-title">Add Item</h5>
+                    <h6 class="card-subtitle text-muted">
+                      The item to add is any stock or tool for your farm.
+                    </h6>
+                  </div>
+                  <div class="card-body">
+                    <form action="/items/additem" method="POST">
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label for="inputEmail4">Item name</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="itemname"
+                            name="itemname"
+                            placeholder="Enter name here eg. Jembe"
+                            required
+                          />
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="inputPassword4">Price</label>
+                          <div class="input-group-prepend">
+                            <div class="input-group-text">Ksh</div>
+                            <input
+                              type="number"
+                              class="form-control"
+                              name="price"
+                              id="price"
+                              placeholder="Eg 1200"
+                              required
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label for="inputAddress2">Quantity to Store</label>
+
+                          <div class="form-group">
+                            <input
+                              type="number"
+                              class="form-control"
+                              name="quantity"
+                              id="quantity"
+                              placeholder="Eg. 1000"
+                              required
+                            />
+                          </div>
+                        </div>
+                            <div class="form-group col-md-6">
+                          <label for="inputAddress2">Condition of the item</label>
+
+                          <div class="form-group">
+                            <input
+                              type="text"
+                              class="form-control"
+                              name="quantity"
+                              id="quantity"
+                              placeholder="Eg. New Item"
+                              required
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <input
+                          type="hidden"
+                          class="form-control"
+                          name="userid"
+                          id="userid"
+                          value="<%- user._id %>"
+                        />
+                      </div>
+
+                      <button type="submit" class="btn btn-primary">
+                        Submit
+                      </button>
+                    </form>
+                    <br />
+                    <% if (locals.error) { %>
+                    <p><%= error %></p>
+                    <br />
+                    <% } %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+
+      <footer class="footer">
+          <div class="container-fluid">
+            <div class="row text-muted">
+              <div class="col-6 text-left">
+                <p class="mb-0">
+                  <a href="/" class="text-muted"><strong>Shamba Digi</strong></a>
+                  &copy;
+                </p>
+              </div>
+              <div class="col-6 text-right">
+                <ul class="list-inline">
+                  <li class="list-inline-item">
+                    <a class="text-muted" href="#">Support</a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a class="text-muted" href="#">Contact Us</a>
+                  </li>
+                 
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <script src="../js/vendor.js"></script>
+    <script src="../js/app.js"></script>
+  </body>
+</html>

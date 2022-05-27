@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<title>Shamba Digi</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+body, html {
+  height: 100%;
+  line-height: 1.8;
+}
+
+/* Full height image header */
+.bgimg-1 {
+  background-position: center;
+  background-size: cover;
+  background-image: url("images/bg.png");
+  min-height: 100%;
+}
+
+.w3-bar .w3-button {
+  padding: 16px;
+}
+</style>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top" style="background-color: #9bde9b;">
+  <div class="w3-bar w3-white w3-card" id="myNavbar" style="background-color: #9bde9b;">
+    <a href="#home" class="w3-bar-item w3-button w3-wide">Shamba Digi</a>
+    <!-- Right-sided navbar links -->
+    <div class="w3-right w3-hide-small">
+      <a href="#about" class="w3-bar-item w3-button">ABOUT US</a>
+      <a href="#services" class="w3-bar-item w3-button"><i class="fa fa-th"></i> SERVICES</a>
+      <!-- <a href="#pricing" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> PRICING</a> -->
+      <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
+      <a href="login.html" class="w3-bar-item w3-button"><i class="fa user"></i>SIGN IN/SIGN UP</a>
+    </div>
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</div>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT US</a>
+  <!-- <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">TEAM</a> -->
+  <a href="#services" onclick="w3_close()" class="w3-bar-item w3-button">SERVICES</a>
+  <!-- <a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button">PRICING</a> -->
+  <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
+  <a href="login.html" onclick="w3_close()" class="w3-bar-item w3-button">SIGN IN/SIGN UP</a>
+</nav>
+
+<!-- Header with full-height image -->
+<header class="bgimg-1 w3-display-container w3-grayscale-min" id="home" style="background-image: url(../images/farmer.jpeg)">
+  <div >
+    <div class="w3-display-left w3-text-white" style="padding:48px">
+      <span class="w3-jumbo w3-hide-small">Smart Farming</span><br>
+      <span class="w3-large">A holistic Digital Farming Experience</span>
+      <p><a href="login.html" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off" style="border-radius: 50px;background: #fff;box-shadow: 0px 8px 15px #adadad;">Get started today</a></p>
+    </div> 
+  </div>
+  <!-- <div class="w3-display-bottomleft w3-text-grey w3-large" style="padding:24px 48px">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  </div> -->
+</header>
+
+<!-- About Section -->
+<div class="w3-container" style="padding:128px 16px" id="about">
+  <h3 class="w3-center">ABOUT Nyeri Smart Farmers</h3>
+  <p class="w3-center w3-large">Who we are</p>
+  <div class="w3-row-padding w3-center" style="margin-top:64px">
+    Shamba Digi was an idea conceived by a group of undergraduate student at Dedan Kimathi University after we observed the tedious manegerial tasks that farmers in Nyeri experience. Our system is tailored to provide with a tool to manage their farm and help the farmer focus more on- farm activities.
+  </div>
+</div>
+<div class="w3-container" style="padding:128px 16px; background-image: url(../images/carrots.jpeg);"></div>
+
+<div class="w3-container w3-light-grey" style="padding:128px 16px" id="services">
+  <h3 class="w3-center">SERVICES</h3>
+  <div class="w3-row-padding">
+     <div class="w3-col w3-center">
+      <h3>What does the application do?</h3>
+      <p>If you need a reliable, accurate and, efficient way to manage your farm - this application can help you to do it.
+        It can be used as a stock and product management tool or accounts tracker on your farm and helping you to properly plan for your season reducing paperwork speadsheets and calculations. Let us help you Manage your farm. </p> 
+    </div>
+  </div>
+</div>
+    <!--<div class="w3-col m6">
+      <img class="w3-image w3-round-large" src="/public/images/gabriel-jimenez-jin4W1HqgL4-unsplash (1).jpg" alt="" width="350" height="194">
+    </div> -->
+    <div class="w3-container" style="padding:128px 16px; background-image: url(../images/wheat.jpeg); background-position: center;"></div>
+    <div class="w3-container" style="padding:128px 16px" id="work">
+      <h3 class="w3-center">ABOUT THE PROJECT</h3>
+      <p class="w3-center w3-large">Key features of our system</p>
+      <div class="w3-row-padding w3-center" style="margin-top:64px">
+        <div class="w3-quarter">
+          <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
+          <p class="w3-large">Reliability</p>
+          <p>It helps you Manage your farm at any given time of the day.</p>
+        </div>
+        <div class="w3-quarter">
+          <i class="fa fa-sticky-note w3-margin-bottom w3-jumbo"></i>
+          <p class="w3-large">Report Generation</p>
+          <p>It helps to generate reports and receipts easily and efficiently.</p>
+        </div>
+        <div class="w3-quarter">
+          <i class="fa fa-hourglass-end w3-margin-bottom w3-jumbo"></i>
+          <p class="w3-large">Scalability and Perfomance</p>
+          <p>Our system is configured to support The Nyeri Farmers and all farmers at lagre while still providing stable and fast servicesensuring the system runs without delay</p>
+        </div>
+        <div class="w3-quarter">
+          <i class="fa fa-cube w3-margin-bottom w3-jumbo"></i>
+          <p class="w3-large">Usability</p>
+          <p>It is developed with the best technologies to provide a seamless user experience to our users.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Promo Section "Statistics" -->
+<div class="w3-container w3-row w3- w3-padding-64">
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">100+</span>
+    <br>Farmers already using our system
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">75+</span>
+    <br>Positive reviews
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">6+</span>
+    <br>Technologies Used
+  </div>
+  
+</div>
+
+<div class="w3-container" style="padding:128px 16px; background-image: url(../images/sheep.jpeg); background-position: center;"></div>
+
+  <!-- <div class="w3-row-padding" style="margin-top:64px">
+    <div class="w3-third w3-section">
+    </div>
+    </div> -->
+<!-- Contact Section -->
+<div class="w3-container w3-light-grey" style="padding:128px 16px" id="contact">
+  <h3 class="w3-center">CONTACT</h3>
+  <p class="w3-center w3-large">Lets get in touch. Send us a message:</p>
+  <div style="margin-top:48px">
+    <!-- <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Chicago, US</p>
+    <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: +00 151515</p>
+    <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: mail@mail.com</p> -->
+    <br>
+    <form action="https://getform.io/f/6b43e04d-15e3-409d-8b40-a8dfb5f4a29d" method="POST">
+      <div class="w3-container col-12 col-xl-3">
+      <p ><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"  style="border-radius: 50px;background: #fff;box-shadow: 0px 8px 15px #adadad;"></p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email" style="border-radius: 50px;background: #fff;box-shadow: 0px 8px 15px #adadad; font-weight: 500;"></p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject" style="border-radius: 50px;background: #fff;box-shadow: 0px 8px 15px #adadad;"></p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Message" required name="Message" style="border-radius: 50px;background: #fff;box-shadow: 0px 8px 15px #adadad;"></p>
+      <p class="w3-center">
+        <button class="w3-button w3-green" type="submit" style="border-radius: 50px;background: #fff; box-shadow: 0px 8px 15px #adadad;transition: all 0.3s ease 0s;">
+          <i class="fa fa-paper-plane"></i> SEND MESSAGE
+        </button>
+      </p>
+    </div>
+    </form>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-64">
+  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right" ></i>To the top</a>
+  <div class="w3-xlarge w3-section">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+  </div> 
+  <p>Made with ♥ by Nyeri Smart Farmers 🍃</p>
+</footer>
+ 
+<script>
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+
+// Toggle between showing and hiding the sidebar when clicking the menu icon
+var mySidebar = document.getElementById("mySidebar");
+
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+  } else {
+    mySidebar.style.display = 'block';
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+    mySidebar.style.display = "none";
+}
+</script>
+
+</body>
+</html>
