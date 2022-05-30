@@ -10,8 +10,7 @@ const {
   UserRouter,
   IndexRouter,
   OrderRouter,
-  PriorityRouter,
-  AccountsRouter
+  PriorityRouter
 } = require('./routes')
 var session = require('express-session');
 const passport = require('passport');
@@ -52,7 +51,6 @@ app.use('/users', UserRouter);
 app.use('/items', ItemRouter);
 app.use('/orders', OrderRouter);
 app.use('/priority', PriorityRouter);
-app.use("/accounts", AccountsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -3,7 +3,7 @@ module.exports = {
   ItemRouter: require('./item'),
   IndexRouter: require('./main'),
   OrderRouter: require('./orders'),
-  PriorityRouter: require('./priority'),
-  AccountsRouter: require('./accounts')
+  PriorityRouter: require('./priority')
+    PriorityRouter: require('./priority')
 
 }
