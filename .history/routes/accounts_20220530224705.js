@@ -3,11 +3,12 @@ var router = express.Router();
 var Account = require("../models/accounts");
 var User = require("../models/user");
 
+
 // Add details to account route
 router.get("/addinfo", isValidUser, async function (req, res, next) {
   User.findOne({ _id: req.user._id })
     .then((result) => {
-      return res.render("addinfo", { user: result });
+      return res.render("addinfo", { "user": result });
     })
     .catch((err) => {
       //return res.status(501).json(err);
@@ -15,8 +16,9 @@ router.get("/addinfo", isValidUser, async function (req, res, next) {
     });
 });
 
+
 // Add details to dashboard
-router.post("/addinfo", isValidUser, async function (req, res, next) {
+router.post("/allinfo", isValidUser, async function (req, res, next) {
   addItemToDatabase(req, res);
 });
 
@@ -24,6 +26,7 @@ async function addItemToDatabase(req, res) {
   const cost = req.body.cost;
   const income = req.body.income;
   const profit = income - cost;
+
   var account = new Account({
     cost: req.body.cost,
     income: req.body.income,
@@ -40,7 +43,7 @@ async function addItemToDatabase(req, res) {
       if (!user) {
         return res.redirect("/users/dashboard");
       }
-      return res.render("addinfo", {
+      return res.render("accounts", {
         error: "details added succssfully!",
         user: user,
       });
@@ -54,7 +57,7 @@ async function addItemToDatabase(req, res) {
       if (!user) {
         return res.redirect("/users/dashboard");
       }
-      return res.render("addinfo", { error: error, user: user });
+      return res.render("addinfo", { "error": error, "user": user });
     });
   }
 }
@@ -63,9 +66,9 @@ async function addItemToDatabase(req, res) {
 router.get("/allinfo", isValidUser, async function (req, res, next) {
   User.findOne({ _id: req.user._id })
     .then((user) => {
-      Account.find({ userid: user._id })
+    Account.find({ userid: user._id })
         .then((items) => {
-          return res.render("allinfo", { accounts: items, user: user });
+          return res.render("allinfo", { "accounts": items, "user": user });
         })
         .catch((err) => {
           //return res.status(501).json(err);
@@ -77,6 +80,7 @@ router.get("/allinfo", isValidUser, async function (req, res, next) {
       res.redirect("/users/dashboard");
     });
 });
+
 
 // edit
 router.get("/editinfo/:id", isValidUser, async function (req, res, next) {
@@ -85,7 +89,7 @@ router.get("/editinfo/:id", isValidUser, async function (req, res, next) {
     .then((user) => {
       Account.findOne({ _id: id })
         .then((item) => {
-          return res.render("editinfo", { account: item, user: user });
+          return res.render("editinfo", { "account": item, "user": user });
         })
         .catch((err) => {
           //return res.status(501).json(err);
@@ -98,38 +102,32 @@ router.get("/editinfo/:id", isValidUser, async function (req, res, next) {
     });
 });
 
-// Update an Item
-router.post("/editinfo/:id", isValidUser, async function (req, res, next) {
-  id = req.params.id;
-  cost = req.body.cost;
+// Update an Item 
+router.post('/editinfo/:id',isValidUser, async function(req,res,next){
+  id=req.params.id;
+  cost=req.body.cost;
   income = req.body.income;
   profit = req.body.profit;
-  date = req.body.date;
-  Account.update(
-    { _id: id },
-    { $set: { cost: cost, income: income, profit: profit, date: date } }
-  )
-    .then((item) => {
-      return res.redirect("/accounts/editinfo/" + id);
-    })
-    .catch((err) => {
+  date=req.body.date;
+  Account.update({_id:id},{$set:{cost:cost,income:income,profit:profit,date:date}}).then(item=>{
+    return res.redirect('/accounts/editinfo/'+id)
+    }).catch(err=>{
       //return res.status(501).json(err);
-      res.redirect("/users/dashboard");
-    });
+      res.redirect("/users/dashboard")
+    })
 });
 
 //Delete an Item
-router.post("/deleteaccount/:id", isValidUser, async function (req, res, next) {
-  id = req.params.id;
-  Account.deleteOne({ _id: id })
-    .then((item) => {
-      return res.redirect("/accounts");
-    })
-    .catch((err) => {
+router.post('/deleteaccount/:id',isValidUser, async function(req,res,next){
+  id=req.params.id;
+  Account.deleteOne({_id:id}).then(item=>{
+    return res.redirect('/accounts')
+    }).catch(err=>{
       //return res.status(501).json(err);
-      res.redirect("/users/dashboard");
-    });
+      res.redirect("/users/dashboard")
+    })
 });
+
 
 function isValidUser(req, res, next) {
   if (req.isAuthenticated()) {

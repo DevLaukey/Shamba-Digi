@@ -24,11 +24,19 @@ async function addItemToDatabase(req, res) {
   const cost = req.body.cost;
   const income = req.body.income;
   const profit = income - cost;
+  var options = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+  const date = req.body.date;
+  date.toLocaleDateString("en-US", options);
   var account = new Account({
     cost: req.body.cost,
     income: req.body.income,
     profit: profit,
-    date: req.body.date,
+    date: date,
     userid: req.body.userid,
   });
   try {

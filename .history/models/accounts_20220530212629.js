@@ -10,4 +10,4 @@ var schema = new mongoose.Schema({
   userid: { type: String, required: true },
 });
 
-module.exports = mongoose.model("Account", schema);
+module.exports = mongoose.model("Accounts", schema);

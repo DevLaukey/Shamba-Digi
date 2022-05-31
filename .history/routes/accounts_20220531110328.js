@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 var Account = require("../models/accounts");
 var User = require("../models/user");
+var dateFormat = require("dateformat");
 
 // Add details to account route
 router.get("/addinfo", isValidUser, async function (req, res, next) {
@@ -24,11 +25,14 @@ async function addItemToDatabase(req, res) {
   const cost = req.body.cost;
   const income = req.body.income;
   const profit = income - cost;
+
+  const date = req.body.date;
+  date.toLocaleDateString("en-US", options);
   var account = new Account({
     cost: req.body.cost,
     income: req.body.income,
     profit: profit,
-    date: req.body.date,
+    date: date,
     userid: req.body.userid,
   });
   try {
