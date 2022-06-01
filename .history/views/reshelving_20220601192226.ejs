@@ -18,7 +18,7 @@
 </head>
 <body>
 	<div class="wrapper">
-	<nav id="sidebar" class="sidebar">
+		<nav id="sidebar" class="sidebar">
       <div class="sidebar-content js-simplebar">
         <a class="sidebar-brand" href="/">
           <span class="align-middle">Shamba Digi</span>
@@ -67,13 +67,13 @@
               <span class="align-middle">View Accounts</span>
             </a>
           </li>
-          <li class="sidebar-item">
+          <li class="sidebar-item active">
             <a class="sidebar-link" href="/priority/shelving">
               <i class="align-middle" data-feather="link"></i>
               <span class="align-middle">Re-Shelving Suggestions</span>
             </a>
           </li>
-          <li class="sidebar-item active">
+          <li class="sidebar-item">
             <a class="sidebar-link" href="/users/settings">
               <i class="align-middle" data-feather="settings"></i>
               <span class="align-middle">Settings</span>
@@ -102,13 +102,13 @@
                             </a>
                             <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-toggle="dropdown">
                                <span class="text-dark"><%= user.email %></span>
-                            </a>
+                              </a>
 							<div class="dropdown-menu dropdown-menu-right">
-								
+								<a class="dropdown-item" href="/user/profile"><i class="align-middle mr-1" data-feather="user"></i> Profile</a>
 								<!-- <a class="dropdown-item" href="#"><i class="align-middle mr-1" data-feather="pie-chart"></i> Analytics</a> -->
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="/users/settings"><i class="align-middle mr-1" data-feather="settings"></i> Settings & Privacy</a>
-								
+								<a class="dropdown-item" href="#"><i class="align-middle mr-1" data-feather="help-circle"></i> Help Center</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="/logout">Log out</a>
 							</div>
@@ -119,103 +119,29 @@
             
             <main class="content">
 				<div class="container-fluid p-0">
-					<h1 class="h3 mb-3">Settings</h1>
+					<h1 class="h3 mb-3">Re-Shelving Suggestions</h1>
 					<div class="row">
-						<div class="col-md-3 col-xl-2">
+                        <% for (i=0;i<itemsets.length;i++){%>
+                        <div class="col-12 col-md-6 col-lg-4">
 							<div class="card">
 								<div class="card-header">
-									<h2 class="card-title mb-0">Profile Settings</h2>
+									<h5 class="card-title mb-0">Support: <%= itemsets[i].support%></h5>
 								</div>
-								<div class="list-group list-group-flush" role="tablist">
-									<a class="list-group-item list-group-item-action active" data-toggle="list" href="#password" role="tab">
-                                        Password
-                                    </a>
-									<a class="list-group-item list-group-item-action" data-toggle="list" href="#account" role="tab">
-                                        Account
-                                    </a>
-									<!-- <a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">
-                                        Help Centre
-                                    </a>
-									<a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">
-                                        Other
-                                    </a>
-									<a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">
-                                        Other II
-                                    </a>
-									<a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">
-                                        Delete account
-                                    </a> -->
-								</div>
+								<ul class="list-group list-group-flush">
+                                    <% for (j=0;j< itemsets[i].items.length;j++){%>
+									<li class="list-group-item"><%= itemsets[i].items[j] %></li>
+									
+                                    <% } %>
+								</ul>
 							</div>
-						</div>
-						<div class="col-md-9 col-xl-10">
-							<div class="tab-content">
-								<div class="tab-pane fade " id="account" role="tabpanel">
-									<div class="card">
-										<div class="card-header">
-											<h5 class="card-title mb-0">Public info</h5>
-										</div>
-										<div class="card-body">
-											<form action="/users/settings/public" method="post">
-												<div class="row">
-													<div class="col-md-8">
-														<div class="form-group">
-															<label for="inputUsername">Company Name</label>
-															<input type="text" class="form-control" name="name" id="inputUsername" value="<%- user.name %>" required />
-														</div>
-														<div class="form-group">
-															<label for="inputUsername">Email</label>
-                                                            <input type="text" class="form-control" name="email" id="inputUsername" value="<%- user.email %>" required />
-														</div>
-													</div>
-													<!-- <div class="col-md-4">
-														<div class="text-center">
-															<img alt="Charles Hall" src="img/avatars/avatar.jpg" class="rounded-circle img-responsive mt-2" width="128" height="128" />
-															<div class="mt-2">
-																<span class="btn btn-primary"><i class="fas fa-upload"></i> Upload</span>
-															</div>
-															<small>For best results, use an image at least 128px by 128px in .jpg format</small>
-														</div>
-													</div> -->
-												</div>
-												<button type="submit" class="btn btn-primary">Save changes</button>
-											</form>
-										</div>
-									</div>
-								</div>
-								<div class="tab-pane show active" id="password" role="tabpanel">
-									<div class="card">
-										<div class="card-body">
-											<h5 class="card-title">Password</h5>
-											<form action="/users/settings/password" method="POST">
-												<div class="form-group">
-													<label for="inputPasswordCurrent">Current password</label>
-													<input type="password" class="form-control" name="password" id="inputPasswordCurrent">
-													<small><a href="#">Forgot your password?</a></small>
-												</div>
-												<div class="form-group">
-													<label for="inputPasswordNew">New password</label>
-													<input type="password" class="form-control" name="pass1" id="inputPasswordNew">
-												</div>
-												<div class="form-group">
-													<label for="inputPasswordNew2">Verify password</label>
-													<input type="password" class="form-control" name="pass2" id="inputPasswordNew2">
-												</div>
-												<% if (locals.error) { %>
-													<label for="inputPasswordNew2"><%= error  %></label>
-												   	<br>
-												<% } %>
-												<button type="submit" class="btn btn-primary">Save changes</button>
-											</form>
+                        </div>
+                        <% } %>
+                    </div>
 
-										</div>
-									</div>
-								</div> 
-							</div>
-						</div>
-					</div>
 				</div>
-			</main>
+            </main>
+
+
 		<footer class="footer">
           <div class="container-fluid">
             <div class="row text-muted">
@@ -242,8 +168,12 @@
         </footer>
 		</div>
 	</div>
+	
+
 	<script src="../js/vendor.js"></script>
 	<script src="../js/app.js"></script>
+	
+
 </body>
 
 </html>

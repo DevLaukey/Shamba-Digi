@@ -10,16 +10,15 @@
   <meta name="keywords" content="adminkit, bootstrap, web ui kit, dashboard template, admin template">
 
   <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
-
   <title>Shamba Digi</title>
-
-  <link href="/css/app.css" rel="stylesheet" />
   <link href="/css/styles.css" rel="stylesheet" />
+
+  <link href="/css/app.css" rel="stylesheet">
 </head>
 
 <body>
   <div class="wrapper">
-   <nav id="sidebar" class="sidebar">
+    <nav id="sidebar" class="sidebar">
       <div class="sidebar-content js-simplebar">
         <a class="sidebar-brand" href="/">
           <span class="align-middle">Shamba Digi</span>
@@ -38,7 +37,7 @@
               <span class="align-middle">Add Item</span>
             </a>
           </li>
-          <li class="sidebar-item">
+          <li class="sidebar-item active">
             <a class="sidebar-link" href="/items/allitems">
               <i class="align-middle" data-feather="bookmark"></i>
               <span class="align-middle">All Items</span>
@@ -50,7 +49,7 @@
               <span class="align-middle">Use Item</span>
             </a>
           </li>
-          <li class="sidebar-item active">
+          <li class="sidebar-item">
             <a class="sidebar-link" href="/orders/allorders">
               <i class="align-middle" data-feather="bookmark"></i>
               <span class="align-middle">Used Items</span>
@@ -102,14 +101,18 @@
                 <i class="align-middle" data-feather="settings"></i>
               </a>
               <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-toggle="dropdown">
-                <span class="text-dark"><%= user.email %></span>
+                <span class="text-dark">
+                  <%= user.email %>
+                </span>
               </a>
               <div class="dropdown-menu dropdown-menu-right">
-                <a class="dropdown-item" href="/user/profile"><i class="align-middle mr-1" data-feather="user"></i> Profile</a>
+                <a class="dropdown-item" href="/user/profile"><i class="align-middle mr-1" data-feather="user"></i>
+                  Profile</a>
                 <!-- <a class="dropdown-item" href="#"><i class="align-middle mr-1" data-feather="pie-chart"></i> Analytics</a> -->
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="/users/settings"><i class="align-middle mr-1" data-feather="settings"></i> Settings & Privacy</a>
-                <a class="dropdown-item" href="#"><i class="align-middle mr-1" data-feather="help-circle"></i> Help Center</a>
+                <a class="dropdown-item" href="#"><i class="align-middle mr-1" data-feather="help-circle"></i> Help
+                  Center</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="/logout">Log out</a>
               </div>
@@ -120,22 +123,27 @@
 
       <main class="content">
         <div class="container-fluid p-0">
-          <h1 class="h3 mb-3">Used Items</h1>
-          <% if (orders.length == 0) { %>
-          <h2 class="ml-8 error"> Kindly add items</h2>
+          <h1 class="h3 mb-3">All Items</h1>
+          <% if (items.length == 0) { %>
+          <h2 class="center btn-danger"> Kindly add items</h2>
           <%} else { %>
-          <div class="row">
-            <% for (i=0;i<orders.length ;i ++) { %>
 
+
+          <div class="row">
+            <% for (i=0;i<items.length;i ++) { %>
             <div class="col-12 col-md-6 col-lg-4">
               <div class="card">
                 <div class="card-header">
-                  <h5 class="card-title mb-0"><%- orders[i].name %></h5>
+                  <h5 class="card-title mb-0">
+                    <%- items[i].itemname %>
+                  </h5>
                 </div>
                 <div class="card-body">
-                  <p class="card-text">Total (in Ksh): <%- orders[i].total %></p>
-                  <p class="card-text">Date: <%- orders[i].date %></p>
-                  <a href="/orders/vieworder/<%- orders[i]._id %>" class="card-link btn btn-success">View</a>
+                  <p class="card-text">Price (in Ksh): <%- items[i].price %>
+                  </p>
+                  <p class="card-text">Quantity Available: <%- items[i].quantity %>
+                  </p>
+                  <a href="/items/edititem/<%- items[i]._id %>" class="card-link btn btn-success">Edit</a>
                   <button type="button" class=" btn btn-danger" data-toggle="modal" data-target="#centeredModalDanger">Delete</a>
                 </div>
               </div>
@@ -149,11 +157,12 @@
                       </button>
                     </div>
                     <div class="modal-body m-3">
-                      <p class="mb-0">Are you sure you want to delete this item? There is no way to retrieve it later.</p>
+                      <p class="mb-0">Are you sure you want to delete this item? There is no way to retrieve it later.
+                      </p>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <form action="/orders/deleteorder/<%- orders[i]._id %>" method="POST">
+                      <form action="/items/deleteitem/<%- items[i]._id %>" method="POST">
                         <button type="submit" class="btn btn-danger">Delete</button>
                       </form>
                     </div>
@@ -163,7 +172,7 @@
             </div>
             <% } %>
           </div>
-          <% } %> 
+          <% } %>
         </div>
       </main>
 

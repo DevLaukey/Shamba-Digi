@@ -121,9 +121,6 @@
       <main class="content">
         <div class="container-fluid p-0">
           <h1 class="h3 mb-3">Used Items</h1>
-          <% if (orders.length == 0) { %>
-          <h2 class="ml-8 error"> Kindly add items</h2>
-          <%} else { %>
           <div class="row">
             <% for (i=0;i<orders.length ;i ++) { %>
 
@@ -163,7 +160,6 @@
             </div>
             <% } %>
           </div>
-          <% } %> 
         </div>
       </main>
 

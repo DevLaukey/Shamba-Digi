@@ -26,7 +26,7 @@
   </head>
   <body>
     <div class="wrapper">
-    <nav id="sidebar" class="sidebar">
+      <nav id="sidebar" class="sidebar">
       <div class="sidebar-content js-simplebar">
         <a class="sidebar-brand" href="/">
           <span class="align-middle">Shamba Digi</span>
@@ -63,7 +63,7 @@
               <span class="align-middle">Used Items</span>
             </a>
           </li>
-          <li class="sidebar-item active">
+          <li class="sidebar-item">
             <a class="sidebar-link" href="/accounts/addinfo">
               <i class="align-middle" data-feather="dollar-sign"></i>
               <span class="align-middle">Add Accounts</span>
@@ -96,7 +96,6 @@
         </ul>
       </div>
     </nav>
-
       <div class="main">
         <nav class="navbar navbar-expand navbar-light navbar-bg">
           <a class="sidebar-toggle d-flex">
@@ -120,6 +119,10 @@
                   <span class="text-dark"><%= user.email %></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="/user/profile"
+                    ><i class="align-middle mr-1" data-feather="user"></i>
+                    Profile</a
+                  >
                   <!-- <a class="dropdown-item" href="#"><i class="align-middle mr-1" data-feather="pie-chart"></i> Analytics</a> -->
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="/users/settings"
@@ -143,79 +146,66 @@
 
         <main class="content">
           <div class="container-fluid p-0">
-            <h1 class="h3 mb-3">Add Account Details</h1>
+             <a href="/items/allitems">
+                <i class="align-middle" data-feather="arrow"></i>
+                <span >BACK</span>
+              </a>
+            <h1 class="h3 mb-3">Items</h1>
             <div class="row">
               <div class="col-md-12">
                 <div class="card">
                   <div class="card-header">
-                    <h5 class="card-title">Add Details</h5>
+                    <h5 class="card-title">Edit Item</h5>
                     <h6 class="card-subtitle text-muted">
-                      This are details of your account that will be stored for
-                      later use.
+                      Change Item details here
                     </h6>
                   </div>
                   <div class="card-body">
-                    <form action="/accounts/addinfo" method="POST">
+                    <form
+                      action="/items/edititem/<%- item._id %>"
+                      method="POST"
+                    >
                       <div class="form-row">
                         <div class="form-group col-md-6">
-                          <label for="cost">The total costs inccured</label>
+                          <label for="inputEmail4">Item name</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="itemname"
+                            name="itemname"
+                            value="<%- item.itemname %>"
+                            required
+                          />
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="inputPassword4">Price</label>
                           <div class="input-group-prepend">
                             <div class="input-group-text">Ksh</div>
                             <input
                               type="number"
-                              min="0"
                               class="form-control"
-                              name="cost"
-                              id="cost"
-                              placeholder="Eg 30,000"
+                              name="price"
+                              id="price"
+                              value="<%- item.price %>"
                               required
                             />
                           </div>
                         </div>
-                        <div class="form-group col-md-6">
-                          <label for="income">Total income:</label>
-                          <div class="input-group-prepend">
-                            <div class="input-group-text">Ksh</div>
-                            <input
-                              type="number"
-                              min="0"
-                              class="form-control"
-                              name="income"
-                              id="income"
-                              placeholder="Eg 10,000"
-                                required
-                            />
-                          </div>
-                        </div>
                       </div>
-                      <div class="form-row">
-                        <div class="form-group col-md-6">
-                         <label for="date">Enter date for the income report</label>
-                          <div class="form-group">
-                            <input
-                              type="date"
-                              min={<% new Date() %> }
-                              class="form-control"
-                              name="date"
-                              id="date"
-                              placeholder="Eg. 12th December 2014"
-                              required
-                            />
-                          </div>
-                        </div>
-                        
-                      </div>
+                      <label for="inputAddress2"
+                        >Quantity Available in Storage</label
+                      >
                       <div class="form-group">
                         <input
-                          type="hidden"
+                          type="number"
                           class="form-control"
-                          name="userid"
-                          id="userid"
-                          value="<%- user._id %>"
+                          name="quantity"
+                          id="quantity"
+                          value="<%- item.quantity %>"
+                          required
                         />
                       </div>
-
-                      <button type="submit" class="btn btn-primary">
+                      <button type="Save Changes" class="btn btn-primary">
                         Submit
                       </button>
                     </form>
@@ -231,7 +221,7 @@
           </div>
         </main>
 
-        <footer class="footer">
+          <footer class="footer">
           <div class="container-fluid">
             <div class="row text-muted">
               <div class="col-6 text-left">

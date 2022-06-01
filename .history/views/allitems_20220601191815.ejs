@@ -10,11 +10,10 @@
 	<meta name="keywords" content="adminkit, bootstrap, web ui kit, dashboard template, admin template">
 
 	<link rel="shortcut icon" href="img/icons/icon-48x48.png" />
-
- <title>Shamba Digi</title>
-
-    <link href="/css/app.css" rel="stylesheet" />
+<title>Shamba Digi</title>
     <link href="/css/styles.css" rel="stylesheet" />
+
+	<link href="/css/app.css" rel="stylesheet">
 </head>
 <body>
 	<div class="wrapper">
@@ -37,7 +36,7 @@
               <span class="align-middle">Add Item</span>
             </a>
           </li>
-          <li class="sidebar-item">
+          <li class="sidebar-item active">
             <a class="sidebar-link" href="/items/allitems">
               <i class="align-middle" data-feather="bookmark"></i>
               <span class="align-middle">All Items</span>
@@ -73,7 +72,7 @@
               <span class="align-middle">Re-Shelving Suggestions</span>
             </a>
           </li>
-          <li class="sidebar-item active">
+          <li class="sidebar-item">
             <a class="sidebar-link" href="/users/settings">
               <i class="align-middle" data-feather="settings"></i>
               <span class="align-middle">Settings</span>
@@ -102,13 +101,13 @@
                             </a>
                             <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-toggle="dropdown">
                                <span class="text-dark"><%= user.email %></span>
-                            </a>
+                              </a>
 							<div class="dropdown-menu dropdown-menu-right">
-								
+								<a class="dropdown-item" href="/user/profile"><i class="align-middle mr-1" data-feather="user"></i> Profile</a>
 								<!-- <a class="dropdown-item" href="#"><i class="align-middle mr-1" data-feather="pie-chart"></i> Analytics</a> -->
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="/users/settings"><i class="align-middle mr-1" data-feather="settings"></i> Settings & Privacy</a>
-								
+								<a class="dropdown-item" href="#"><i class="align-middle mr-1" data-feather="help-circle"></i> Help Center</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="/logout">Log out</a>
 							</div>
@@ -119,104 +118,49 @@
             
             <main class="content">
 				<div class="container-fluid p-0">
-					<h1 class="h3 mb-3">Settings</h1>
+					<h1 class="h3 mb-3">All Items</h1>
 					<div class="row">
-						<div class="col-md-3 col-xl-2">
+                        <% for (i=0;i<items.length;i ++) { %>
+						<div class="col-12 col-md-6 col-lg-4">
 							<div class="card">
 								<div class="card-header">
-									<h2 class="card-title mb-0">Profile Settings</h2>
+									<h5 class="card-title mb-0"><%- items[i].itemname %></h5>
 								</div>
-								<div class="list-group list-group-flush" role="tablist">
-									<a class="list-group-item list-group-item-action active" data-toggle="list" href="#password" role="tab">
-                                        Password
-                                    </a>
-									<a class="list-group-item list-group-item-action" data-toggle="list" href="#account" role="tab">
-                                        Account
-                                    </a>
-									<!-- <a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">
-                                        Help Centre
-                                    </a>
-									<a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">
-                                        Other
-                                    </a>
-									<a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">
-                                        Other II
-                                    </a>
-									<a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">
-                                        Delete account
-                                    </a> -->
-								</div>
-							</div>
-						</div>
-						<div class="col-md-9 col-xl-10">
-							<div class="tab-content">
-								<div class="tab-pane fade " id="account" role="tabpanel">
-									<div class="card">
-										<div class="card-header">
-											<h5 class="card-title mb-0">Public info</h5>
-										</div>
-										<div class="card-body">
-											<form action="/users/settings/public" method="post">
-												<div class="row">
-													<div class="col-md-8">
-														<div class="form-group">
-															<label for="inputUsername">Company Name</label>
-															<input type="text" class="form-control" name="name" id="inputUsername" value="<%- user.name %>" required />
-														</div>
-														<div class="form-group">
-															<label for="inputUsername">Email</label>
-                                                            <input type="text" class="form-control" name="email" id="inputUsername" value="<%- user.email %>" required />
-														</div>
-													</div>
-													<!-- <div class="col-md-4">
-														<div class="text-center">
-															<img alt="Charles Hall" src="img/avatars/avatar.jpg" class="rounded-circle img-responsive mt-2" width="128" height="128" />
-															<div class="mt-2">
-																<span class="btn btn-primary"><i class="fas fa-upload"></i> Upload</span>
-															</div>
-															<small>For best results, use an image at least 128px by 128px in .jpg format</small>
-														</div>
-													</div> -->
-												</div>
-												<button type="submit" class="btn btn-primary">Save changes</button>
-											</form>
-										</div>
-									</div>
-								</div>
-								<div class="tab-pane show active" id="password" role="tabpanel">
-									<div class="card">
-										<div class="card-body">
-											<h5 class="card-title">Password</h5>
-											<form action="/users/settings/password" method="POST">
-												<div class="form-group">
-													<label for="inputPasswordCurrent">Current password</label>
-													<input type="password" class="form-control" name="password" id="inputPasswordCurrent">
-													<small><a href="#">Forgot your password?</a></small>
-												</div>
-												<div class="form-group">
-													<label for="inputPasswordNew">New password</label>
-													<input type="password" class="form-control" name="pass1" id="inputPasswordNew">
-												</div>
-												<div class="form-group">
-													<label for="inputPasswordNew2">Verify password</label>
-													<input type="password" class="form-control" name="pass2" id="inputPasswordNew2">
-												</div>
-												<% if (locals.error) { %>
-													<label for="inputPasswordNew2"><%= error  %></label>
-												   	<br>
-												<% } %>
-												<button type="submit" class="btn btn-primary">Save changes</button>
-											</form>
-
-										</div>
-									</div>
-								</div> 
-							</div>
-						</div>
+								<div class="card-body">
+                                    <p class="card-text">Price (in Ksh): <%- items[i].price %></p>
+                                    <p class="card-text">Quantity Available: <%- items[i].quantity %></p>
+									<a href="/items/edititem/<%- items[i]._id %>" class="card-link btn btn-success">Edit</a>
+                                    <button type="button"class=" btn btn-danger" data-toggle="modal" data-target="#centeredModalDanger">Delete</a>      
+                                </div>
+                            </div>
+                            <div class="modal fade" id="centeredModalDanger" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Warning</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body m-3">
+                                            <p class="mb-0">Are you sure you want to delete this item? There is no way to retrieve it later.</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <form action="/items/deleteitem/<%- items[i]._id %>" method="POST">
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
 					</div>
 				</div>
 			</main>
-		<footer class="footer">
+
+			 <footer class="footer">
           <div class="container-fluid">
             <div class="row text-muted">
               <div class="col-6 text-left">
@@ -242,8 +186,9 @@
         </footer>
 		</div>
 	</div>
+	
 	<script src="../js/vendor.js"></script>
 	<script src="../js/app.js"></script>
-</body>
 
+</body>
 </html>
