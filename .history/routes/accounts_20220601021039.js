@@ -85,7 +85,7 @@ router.get("/editinfo/:id", isValidUser, async function (req, res, next) {
     .then((user) => {
       Account.findOne({ _id: id })
         .then(item => {
-          return res.render("editinfo", { "account": item, "user": user });
+          return res.render("editinfo", { account: item, user: user });
         })
         .catch((err) => {
           //return res.status(501).json(err);
@@ -103,14 +103,14 @@ router.post("/editinfo/:id", isValidUser, async function (req, res, next) {
   id = req.params.id;
   cost = req.body.cost;
   income = req.body.income;
-  profit = req.body.income - req.body.cost;
+  profit = req.body.profit;
   date = req.body.date;
   Account.update(
     { _id: id },
     { $set: { cost: cost, income: income, profit: profit, date: date } }
   )
     .then((item) => {
-      return res.redirect("/accounts/allinfo");
+      return res.redirect("/accounts/editinfo/" + id);
     })
     .catch((err) => {
       //return res.status(501).json(err);
@@ -119,41 +119,17 @@ router.post("/editinfo/:id", isValidUser, async function (req, res, next) {
 });
 
 //Delete an Item
-router.post("/deleteinfo/:id", isValidUser, async function (req, res, next) {
+router.post("/deleteaccount/:id", isValidUser, async function (req, res, next) {
   id = req.params.id;
   Account.deleteOne({ _id: id })
-    .then(item => {
-      return res.redirect("/accounts/allinfo");
+    .then((item) => {
+      return res.redirect("/accounts");
     })
     .catch((err) => {
       //return res.status(501).json(err);
       res.redirect("/users/dashboard");
     });
 });
-
-
-//view accounts 
-router.get("/viewinfo/:id", isValidUser, async function (req, res, next) {
-  id = req.params.id;
-  User.findOne({ _id: req.user._id })
-    .then((result) => {
-      Account.findOne({ _id: id })
-        .then(account => {
-          return res.render("receipt", { "user": result, "account": account });
-        })
-        .catch((err) => {
-          //return res.status(501).json(err);
-          console.log(err.message);
-          // res.redirect("/users/dashboard")
-        });
-    })
-    .catch((err) => {
-      //return res.status(501).json(err);
-      console.log(err.message);
-      // res.redirect("/users/dashboard")
-    });
-});
-
 
 function isValidUser(req, res, next) {
   if (req.isAuthenticated()) {

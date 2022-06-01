@@ -138,8 +138,8 @@ router.get("/viewinfo/:id", isValidUser, async function (req, res, next) {
   User.findOne({ _id: req.user._id })
     .then((result) => {
       Account.findOne({ _id: id })
-        .then(account => {
-          return res.render("receipt", { "user": result, "account": account });
+        .then(order => {
+          return res.render("receipt", { "user": result, "account": order });
         })
         .catch((err) => {
           //return res.status(501).json(err);

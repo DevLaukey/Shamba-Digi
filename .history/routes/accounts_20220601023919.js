@@ -119,7 +119,7 @@ router.post("/editinfo/:id", isValidUser, async function (req, res, next) {
 });
 
 //Delete an Item
-router.post("/deleteinfo/:id", isValidUser, async function (req, res, next) {
+router.post("/deleteaccount/:id", isValidUser, async function (req, res, next) {
   id = req.params.id;
   Account.deleteOne({ _id: id })
     .then(item => {
@@ -130,30 +130,6 @@ router.post("/deleteinfo/:id", isValidUser, async function (req, res, next) {
       res.redirect("/users/dashboard");
     });
 });
-
-
-//view accounts 
-router.get("/viewinfo/:id", isValidUser, async function (req, res, next) {
-  id = req.params.id;
-  User.findOne({ _id: req.user._id })
-    .then((result) => {
-      Account.findOne({ _id: id })
-        .then(account => {
-          return res.render("receipt", { "user": result, "account": account });
-        })
-        .catch((err) => {
-          //return res.status(501).json(err);
-          console.log(err.message);
-          // res.redirect("/users/dashboard")
-        });
-    })
-    .catch((err) => {
-      //return res.status(501).json(err);
-      console.log(err.message);
-      // res.redirect("/users/dashboard")
-    });
-});
-
 
 function isValidUser(req, res, next) {
   if (req.isAuthenticated()) {

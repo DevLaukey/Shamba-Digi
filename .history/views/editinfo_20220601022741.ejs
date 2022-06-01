@@ -19,22 +19,21 @@
 
     <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
 
-    <title>Shamba Digi | Dashboard</title>
+    <title>Shamba Digi</title>
 
     <link href="/css/app.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/francis.css" />
-    <link rel="stylesheet" href="/css/styles.css" />
+    <link href="/css/styles.css" rel="stylesheet" />
   </head>
   <body>
     <div class="wrapper">
       <nav id="sidebar" class="sidebar">
         <div class="sidebar-content js-simplebar">
-          <a class="sidebar-brand" href="index">
+          <a class="sidebar-brand" href="index.html">
             <span class="align-middle">Shamba Digi</span>
           </a>
           <ul class="sidebar-nav">
             <li class="sidebar-header"></li>
-            <li class="sidebar-item active">
+            <li class="sidebar-item">
               <a class="sidebar-link" href="/users/dashboard">
                 <i class="align-middle" data-feather="star"></i>
                 <span class="align-middle">Dashboard</span>
@@ -46,7 +45,7 @@
                 <span class="align-middle">Add Item</span>
               </a>
             </li>
-            <li class="sidebar-item">
+            <li class="sidebar-item active">
               <a class="sidebar-link" href="/items/allitems">
                 <i class="align-middle" data-feather="bookmark"></i>
                 <span class="align-middle">All Items</span>
@@ -62,18 +61,6 @@
               <a class="sidebar-link" href="/orders/allorders">
                 <i class="align-middle" data-feather="bookmark"></i>
                 <span class="align-middle">Used Items</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="/accounts/addinfo">
-                <i class="align-middle" data-feather="dollar-sign"></i>
-                <span class="align-middle">Add Accounts</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="/accounts/allinfo">
-                <i class="align-middle" data-feather="credit-card"></i>
-                <span class="align-middle">View Accounts</span>
               </a>
             </li>
             <li class="sidebar-item">
@@ -148,84 +135,78 @@
 
         <main class="content">
           <div class="container-fluid p-0">
-            <div class="row mb-2 mb-xl-3">
-              <div class="col-auto d-none d-sm-block">
-                <h3><strong>Analytics</strong> Dashboard</h3>
-              </div>
-
-              <div class="col-auto ml-auto text-right mt-n1">
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb bg-transparent p-0 mt-1 mb-0">
-                    <li class="breadcrumb-item"><a href="#">AdminKit</a></li>
-                    <li class="breadcrumb-item"><a href="#">Dashboards</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">
-                      Analytics
-                    </li>
-                  </ol>
-                </nav>
-              </div>
-            </div>
+             <a href="/accounts/allinfo">
+                <i class="align-middle" data-feather="arrow"></i>
+                <span >BACK</span>
+              </a>
+            <h1 class="h3 mb-3">Account Details</h1>
             <div class="row">
-              <div class="col-xl-6 col-xxl-5 d-flex">
-                <div class="w-100">
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <div class="card">
-                        <div class="card-body">
-                          <h5 class="card-title mb-4">Sales</h5>
-                          <h1 class="display-5 mt-1 mb-3">2.382</h1>
-                          <div class="mb-1">
-                            <span class="text-danger">
-                              <i class="mdi mdi-arrow-bottom-right"></i> -3.65%
-                            </span>
-                            <span class="text-muted">Since last week</span>
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h5 class="card-title">Edit Details</h5>
+                    <h6 class="card-subtitle text-muted">
+                      Change Account details here
+                    </h6>
+                  </div>
+                  <div class="card-body">
+                    <form
+                      action="/accounts/editinfo/<%- account._id %>"
+                      method="POST"
+                    >
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label for="cost">The total costs inccured</label>
+                          <div class="input-group-prepend">
+                            <div class="input-group-text">Ksh</div>
+                            <input
+                              type="number"
+                              class="form-control"
+                              name="cost"
+                              id="cost"
+                              value="<%- account.cost %>"
+                              required
+                            />
+                          </div>
+                          </div>
+                          </div>
+                      <div class="form-group col-md-6">
+                          <label for="income">Total income:</label>
+                          <div class="input-group-prepend">
+                            <div class="input-group-text">Ksh</div>
+                            <input
+                              type="number"
+                              class="form-control"
+                              name="income"
+                              id="income"
+                              value="<%- account.income %>"
+                              required
+                            />
                           </div>
                         </div>
                       </div>
-                      <div class="card">
-                        <div class="card-body">
-                          <h5 class="card-title mb-4">Visitors</h5>
-                          <h1 class="display-5 mt-1 mb-3">14.212</h1>
-                          <div class="mb-1">
-                            <span class="text-success">
-                              <i class="mdi mdi-arrow-bottom-right"></i> 5.25%
-                            </span>
-                            <span class="text-muted">Since last week</span>
+                      <label for="date">Enter date for the income report</label>
+                          <div class="form-group">
+                            <input
+                              type="date"
+                              class="form-control"
+                              name="date"
+                              id="date"
+                               value="<%- account.date %>"
+                              required
+                            />
                           </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="card">
-                        <div class="card-body">
-                          <h5 class="card-title mb-4">Earnings</h5>
-                          <h1 class="display-5 mt-1 mb-3">$21.300</h1>
-                          <div class="mb-1">
-                            <span class="text-success">
-                              <i class="mdi mdi-arrow-bottom-right"></i> 6.65%
-                            </span>
-                            <span class="text-muted">Since last week</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <div class="card-body">
-                          <h5 class="card-title mb-4">Orders</h5>
-                          <h1 class="display-5 mt-1 mb-3">64</h1>
-                          <div class="mb-1">
-                            <span class="text-danger">
-                              <i class="mdi mdi-arrow-bottom-right"></i> -2.25%
-                            </span>
-                            <span class="text-muted">Since last week</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                      <button type="Save Changes" class="btn btn-primary">
+                        Submit
+                      </button>
+                    </form>
+                    <br />
+                    <% if (locals.error) { %>
+                    <p><%= error %></p>
+                    <br />
+                    <% } %>
                   </div>
                 </div>
-              </div>
-              <div class="col-xl-6 col-xxl-5 d-flex">
-                <!-- Add graph here later -->
               </div>
             </div>
           </div>
@@ -236,7 +217,9 @@
             <div class="row text-muted">
               <div class="col-6 text-left">
                 <p class="mb-0">
-                  <a href="/" class="text-muted"><strong>Manage.in</strong></a>
+                  <a href="/" class="text-muted"
+                    ><strong>Shamba Digi</strong></a
+                  >
                   &copy;
                 </p>
               </div>
@@ -246,20 +229,13 @@
                     <a class="text-muted" href="#">Support</a>
                   </li>
                   <li class="list-inline-item">
-                    <a class="text-muted" href="#">Help Center</a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a class="text-muted" href="#">Privacy</a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a class="text-muted" href="#">Terms</a>
+                    <a class="text-muted" href="#">Contact Us</a>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
         </footer>
-      </div>
     </div>
 
     <script src="../js/vendor.js"></script>
