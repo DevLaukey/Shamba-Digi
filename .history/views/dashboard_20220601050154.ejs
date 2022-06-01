@@ -141,60 +141,69 @@
               <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h3 class="modal-title" id="exampleModalLongTitle">What is you vision for the season?</h3>
+                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   <div class="modal-body">
-                   <form action="/dashboard" method="POST">
+                   <form action="/items/additem" method="POST">
                       <div class="form-row">
                         <div class="form-group col-md-6">
-                          <label for="income">Budgetted Income</label>
-                          <div class="input-group-prepend">
-                            <div class="input-group-text">Ksh</div>
-                            <input
-                              type="number"
-                              class="form-control"
-                              name="income"
-                              id="income"
-                              placeholder="300,000"
-                              required
-                            />
-                          </div>
+                          <label for="inputEmail4">Item name</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="itemname"
+                            name="itemname"
+                            placeholder="Enter name here eg. Jembe"
+                            required
+                          />
                         </div>
                         <div class="form-group col-md-6">
-                          <label for="expenses">Budgetted Expenses</label>
+                          <label for="inputPassword4">Price</label>
                           <div class="input-group-prepend">
                             <div class="input-group-text">Ksh</div>
                             <input
                               type="number"
                               class="form-control"
-                              name="expenses"
-                              id="expenses"
-                              placeholder="200,000"
+                              name="price"
+                              id="price"
+                              placeholder="Eg 1200"
                               required
                             />
                           </div>
                         </div>
-                        
-
                       </div>
                       <div class="form-row">
-                        <div class="form-group col-md-12">
-                          <label for="visors">What is your driving force</label>
+                        <div class="form-group col-md-6">
+                          <label for="inputAddress2">Quantity to Store</label>
 
                           <div class="form-group">
-                            <textarea
+                            <input
+                              type="number"
                               class="form-control"
                               name="quantity"
                               id="quantity"
-                              placeholder="What do you plan to achieve"
+                              placeholder="Eg. 1000"
                               required
-                            ></textarea>
+                            />
                           </div>
                         </div>
-                     
+                        <div class="form-group col-md-6">
+                          <label for="condition">Condition of the item</label>
+
+                          <div class="form-group">
+                            <input
+                              type="text"
+                              class="form-control"
+                              name="condition"
+                              id="condition"
+                              placeholder="Eg. New Item"
+                              required
+                            />
+                          </div>
+                        </div>
                       </div>
                       <div class="form-group">
                         <input
@@ -209,7 +218,6 @@
                       <button type="submit" class="btn btn-primary">
                         Submit
                       </button>
-                      <button type="reset" class="btn btn-danger">Reset</button>
                     </form>
                     <br />
                     <% if (locals.error) { %>
@@ -219,6 +227,7 @@
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
                   </div>
                 </div>
               </div>

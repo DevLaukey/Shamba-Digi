@@ -151,17 +151,14 @@
                       <div class="form-row">
                         <div class="form-group col-md-6">
                           <label for="income">Budgetted Income</label>
-                          <div class="input-group-prepend">
-                            <div class="input-group-text">Ksh</div>
-                            <input
-                              type="number"
-                              class="form-control"
-                              name="income"
-                              id="income"
-                              placeholder="300,000"
-                              required
-                            />
-                          </div>
+                          <div class="input-group-text">Ksh</div>
+                          <input
+                            type="number"
+                            class="form-control"
+                            id="income"
+                            name="income" placeholder="300,000"
+                            required
+                          />
                         </div>
                         <div class="form-group col-md-6">
                           <label for="expenses">Budgetted Expenses</label>
@@ -177,24 +174,36 @@
                             />
                           </div>
                         </div>
-                        
-
                       </div>
                       <div class="form-row">
-                        <div class="form-group col-md-12">
-                          <label for="visors">What is your driving force</label>
+                        <div class="form-group col-md-6">
+                          <label for="inputAddress2">Quantity to Store</label>
 
                           <div class="form-group">
-                            <textarea
+                            <input
+                              type="number"
                               class="form-control"
                               name="quantity"
                               id="quantity"
-                              placeholder="What do you plan to achieve"
+                              placeholder="Eg. 1000"
                               required
-                            ></textarea>
+                            />
                           </div>
                         </div>
-                     
+                        <div class="form-group col-md-6">
+                          <label for="condition">Condition of the item</label>
+
+                          <div class="form-group">
+                            <input
+                              type="text"
+                              class="form-control"
+                              name="condition"
+                              id="condition"
+                              placeholder="Eg. New Item"
+                              required
+                            />
+                          </div>
+                        </div>
                       </div>
                       <div class="form-group">
                         <input

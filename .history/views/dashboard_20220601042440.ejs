@@ -130,9 +130,6 @@
               <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModalCenter">
                 Set Vision Board
               </button>
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                Edit Vision Board
-              </button>
             </div>
 
 
@@ -141,84 +138,17 @@
               <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h3 class="modal-title" id="exampleModalLongTitle">What is you vision for the season?</h3>
+                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   <div class="modal-body">
-                   <form action="/dashboard" method="POST">
-                      <div class="form-row">
-                        <div class="form-group col-md-6">
-                          <label for="income">Budgetted Income</label>
-                          <div class="input-group-prepend">
-                            <div class="input-group-text">Ksh</div>
-                            <input
-                              type="number"
-                              class="form-control"
-                              name="income"
-                              id="income"
-                              placeholder="300,000"
-                              required
-                            />
-                          </div>
-                        </div>
-                        <div class="form-group col-md-6">
-                          <label for="expenses">Budgetted Expenses</label>
-                          <div class="input-group-prepend">
-                            <div class="input-group-text">Ksh</div>
-                            <input
-                              type="number"
-                              class="form-control"
-                              name="expenses"
-                              id="expenses"
-                              placeholder="200,000"
-                              required
-                            />
-                          </div>
-                        </div>
-                        
-
-                      </div>
-                      <div class="form-row">
-                        <div class="form-group col-md-12">
-                          <label for="visors">What is your driving force</label>
-
-                          <div class="form-group">
-                            <textarea
-                              class="form-control"
-                              name="quantity"
-                              id="quantity"
-                              placeholder="What do you plan to achieve"
-                              required
-                            ></textarea>
-                          </div>
-                        </div>
-                     
-                      </div>
-                      <div class="form-group">
-                        <input
-                          type="hidden"
-                          class="form-control"
-                          name="userid"
-                          id="userid"
-                          value="<%- user._id %>"
-                        />
-                      </div>
-
-                      <button type="submit" class="btn btn-primary">
-                        Submit
-                      </button>
-                      <button type="reset" class="btn btn-danger">Reset</button>
-                    </form>
-                    <br />
-                    <% if (locals.error) { %>
-                    <p><%= error %></p>
-                    <br />
-                    <% } %>
+                    ...
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
                   </div>
                 </div>
               </div>
@@ -230,15 +160,13 @@
 
           <section>
             <div class="col-12 section-intro text-center" data-aos="fade-up">
-             
+              <% if(board) { %>
+              <h1>foo</h1>
+              <% } else{ %>
+              <h1>bar</h1>
+              <% } %>
               <h1>My vision for the Season</h1>
               <div class="divider"></div>
-               <% if(user.len  == 0) { %>
-              <h4>Kindly fill in your vision for the Season</h4>
-              <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModalCenter">
-                Set Vision Board
-              </button>
-              <% } else{ %>
               <p>I love learning new things concerning technology, appplying them and also teaching people
                 about
                 them.
@@ -250,20 +178,20 @@
                 has given me an opportunity to practice what I know, learn new skills and also teach
                 them to my
                 fellow colleague.</p>
-              </div>
-            </section>
-            
-            <section>
-              <div class="card-list">
-                <div class="row">
-                  <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
+            </div>
+          </section>
+
+          <section>
+            <div class="card-list">
+              <div class="row">
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
                   <div class="card dack-green ">
                     <div class="title">
                       <h5>Total Income</h5>
                     </div>
                     <div class="value"><sup>Kes </sup><span>89,000</span></div>
                     <div class="stat"><b>13</b>% increase</div>
-                    
+
                   </div>
 
                 </div>
@@ -299,8 +227,7 @@
           </section>
         </div>
       </main>
-      
-      <% } %>
+
       <footer class="footer">
         <div class="container-fluid">
           <div class="row text-muted">

@@ -18,7 +18,7 @@ router.get('/register',function(req,res,next){
 //Post Request on Register Page
 router.post('/register',function(req,res,next){
   if (req.body.password!==req.body.cpassword){
-    return res.render('register',{"error":"Passwords don't match"})
+    return res.render('register',{"error":"Passwords dont match"})
   }
   else{
     database(req,res);
