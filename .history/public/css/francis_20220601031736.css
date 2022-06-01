@@ -1,0 +1,117 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 900 !important;
+}
+
+
+.section-intro .divider {
+	height: 4px;
+	width: 70px;
+	background: linear-gradient(to right, #3bb78f 0%, #0bab64);
+	margin: 16px auto;
+}
+
+/* Style for the cards */
+.card h5 {
+	color: white;
+}
+
+.card sup {
+	color: #E0E1E4;
+}
+
+.card-list {
+	width: 100%;
+}
+
+.card-list:before,
+.card-list:after {
+	content: " ";
+	display: table;
+}
+
+.card-list:after {
+	clear: both;
+}
+
+.card {
+	cursor: pointer;
+	border-radius: 8px;
+	color: white;
+	padding: 10px;
+	position: relative;
+	overflow: hidden;
+	position: relative;
+	z-index: 1;
+}
+
+
+.card .stat {
+	border-top: 1px solid rgba(255, 255, 255, 0.3);
+	font-size: 8px;
+	margin-top: 25px;
+	padding: 10px 10px 0;
+	text-transform: uppercase;
+}
+
+.card .title {
+	display: inline-block;
+	font-size: 8px;
+	padding: 10px 10px 0;
+	text-transform: uppercase;
+}
+
+.card .value {
+	font-size: 28px;
+	padding: 0 10px;
+	transform: scale(1.1);
+}
+
+.card.dack-green {
+	background-color: #416422;
+}
+
+.card.green {
+	background-color: #66b92e;
+}
+
+.card.orange {
+	background-color: #da932c;
+}
+
+.card.red {
+	background-color: #d65b4a;
+}
+
+.card::after,
+.title,
+.value{
+	transition: all 1s ease;
+}
+
+.card::after{
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0,255,0,.5);
+	z-index: -1;
+	transform: scaleX(0);
+	transform-origin: right;
+	transition: transform 200ms ease-in;
+}
+
+.card:hover::after{
+	transform: scaleX(1);
+	transform-origin: left;
+}
+
+.card:hover{
+	transform: scale(1.1);
+}
